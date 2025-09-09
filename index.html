@@ -1,0 +1,81 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Real-Time Weather Dashboard</title>
+            <!-- Tailwind CSS CDN -->
+            <script src="https://cdn.tailwindcss.com"></script>
+            <!-- Inter font -->
+            <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="style.css">
+        </head>
+        <body>
+            <div class="container">
+                <!-- Title -->
+                <h1 class="text-4xl font-bold text-gray-800 text-center mb-6">Weather Dashboard</h1>
+        
+                <!-- Search Input -->
+                <div class="input-group flex flex-col sm:flex-row gap-4">
+                    <input
+                        type="text"
+                        id="city-input"
+                        placeholder="Enter city name or 'current location'"
+                        class="flex-grow p-3 rounded-xl text-lg focus:ring-0"
+                    />
+                    <button
+                        id="search-button"
+                        class="search-button px-6 py-3 rounded-xl text-white shadow-lg"
+                    >
+                        Get Weather
+                    </button>
+                </div>
+        
+                <!-- Loading and Error Messages -->
+                <div id="loading-indicator" class="hidden flex flex-col justify-center items-center py-8">
+                    <div class="loading-spinner mb-4"></div>
+                    <span class="text-gray-600 text-lg font-medium">Fetching weather data...</span>
+                </div>
+                <div id="error-message" class="hidden error-message text-center">
+                    <p>Oops! Could not find weather data for that location. Please try again.</p>
+                </div>
+        
+                <!-- Current Weather Display -->
+                <div id="current-weather" class="weather-card hidden fade-in">
+                    <div class="flex flex-col sm:flex-row items-center justify-between">
+                        <div class="text-center sm:text-left mb-4 sm:mb-0">
+                            <h2 id="city-name" class="text-3xl font-bold text-gray-900 mb-1"></h2>
+                            <p id="date" class="text-gray-700 text-lg"></p>
+                            <p id="description" class="text-gray-800 text-xl capitalize mt-1"></p>
+                        </div>
+                        <div class="flex items-center">
+                            <img id="weather-icon" src="" alt="Weather Icon" class="weather-icon">
+                            <span id="temperature" class="text-6xl font-extrabold text-gray-900 ml-4"></span>
+                            <span class="text-3xl text-gray-600 ml-1">&deg;C</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6 text-lg text-gray-700">
+                        <div class="flex items-center">
+                            <span class="mr-2 text-xl">💧</span>
+                            Humidity: <span id="humidity" class="font-semibold ml-1"></span>%
+                        </div>
+                        <div class="flex items-center">
+                            <span class="mr-2 text-xl">💨</span>
+                            Wind Speed: <span id="wind-speed" class="font-semibold ml-1"></span> m/s
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- 3-Day Forecast Display -->
+                <div id="forecast-section" class="hidden fade-in">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">3-Day Forecast</h3>
+                    <div id="forecast-container" class="forecast-grid grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <!-- Forecast cards will be injected here by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        
+      <script src="index.js"></script>
+        </body>
+        </html>
